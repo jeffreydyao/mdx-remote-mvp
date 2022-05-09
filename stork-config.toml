@@ -1,0 +1,10 @@
+[input]
+base_directory = "posts"
+url_prefix = "test.com"
+frontmatter_handling = "Omit"
+files = [
+    {path = "example-post.mdx", url = "0001", title = "Example Post", filetype = "Markdown"},
+    {path = "fido-standard.mdx", url = "0002", title = "Passwordless Authentication", filetype = "Markdown"},
+    {path = "hello-world.mdx", url = "0003", title = "Hello World", filetype = "Markdown"},
+    {path = "no-blueberries.mdx", url = "0004", title = "No Blueberries", filetype = "Markdown"},
+]
