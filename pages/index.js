@@ -5,14 +5,27 @@ import path from "path"
 import Layout from "../components/Layout"
 import { postFilePaths, POSTS_PATH } from "../utils/mdxUtils"
 import readingTime from "reading-time"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import Script from "next/script"
 
 export default function Index ({ posts }) {
-  // Initialise Stork
+  const [loaded, setLoaded] = useState(false)
+
+  // Inject Stork into the document body.
   useEffect(() => {
-    stork.register("search", "stork-index.st")
+    const stork = document.createElement("Script")
+    stork.src = "https://files.stork-search.net/releases/v1.4.2/stork.js"
+    stork.strategy = "beforeInteractive"
+    stork.addEventListener("load", () => setLoaded(true))
+    document.body.appendChild(stork)
   }, [])
+
+  // Initialise Stork if loaded.
+  useEffect(() => {
+    if (!loaded) return
+    console.log("Stork loaded - initialising!")
+    stork.register("search", "stork-index.st")
+  }, [loaded])
 
   return (
     <Layout>

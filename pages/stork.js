@@ -6,8 +6,8 @@ import { useEffect } from "react"
 export default function Stork () {
   // Initialises Stork on page, targeting elements with data-stork prop and loading index
   useEffect(() => {
-    stork.register("federalist", "https://files.stork-search.net/releases/v1.4.2/federalist.st")
-  }, [])
+    window.stork.register("federalist", "https://files.stork-search.net/releases/v1.4.2/federalist.st")
+  })
 
   return (
     <html lang='en'>
@@ -21,7 +21,6 @@ export default function Stork () {
           <input data-stork='federalist' class='stork-input' />
           <div data-stork='federalist-output' class='stork-output'></div>
         </div>
-        <Script src='https://files.stork-search.net/releases/v1.4.2/stork.js' strategy='beforeInteractive' />
       </body>
     </html>
   )
