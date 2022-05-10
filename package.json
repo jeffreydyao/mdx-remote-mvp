@@ -7,6 +7,8 @@
     "start": "next start"
   },
   "dependencies": {
+    "@iarna/toml": "^2.2.5",
+    "globby": "^13.1.1",
     "gray-matter": "^4.0.2",
     "next": "latest",
     "next-mdx-remote": "^3.0.1",
