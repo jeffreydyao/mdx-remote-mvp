@@ -1,13 +1,14 @@
 // A Node script that builds an index file for Stork dynamically.
 
+import toml from "@iarna/toml"
 import fs from "fs"
 import { globby } from "globby"
-import path from "path"
 import matter from "gray-matter"
-import toml from "@iarna/toml"
+import { spawn } from "child_process"
 
 const POSTS_PATH = "posts"
 const URL_PREFIX = POSTS_PATH + "/"
+const CONFIG_NAME = "stork-config"
 
 // Get the paths of all files in the directory
 let postFilePaths = await globby([`${POSTS_PATH}/*.mdx`])
@@ -43,6 +44,10 @@ const storkConfig = {
 }
 
 const tomlConfig = toml.stringify(storkConfig)
-fs.writeFileSync("test.toml", tomlConfig)
 
-// Map the array to the files array in the toml file
+try {
+  fs.writeFileSync(`${CONFIG_NAME}.toml`, tomlConfig)
+  console.log("✅  Stork config generated successfully!")
+} catch (err) {
+  console.error(err)
+}

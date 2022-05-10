@@ -2,9 +2,27 @@
 base_directory = "posts"
 url_prefix = "posts/"
 frontmatter_handling = "Omit"
-files = [
-    {path = "example-post.mdx", url = "example-post", title = "Example Post", filetype = "Markdown"},
-    {path = "fido-standard.mdx", url = "fido-standard", title = "Passwordless Authentication", filetype = "Markdown"},
-    {path = "hello-world.mdx", url = "hello-world", title = "Hello World", filetype = "Markdown"},
-    {path = "no-blueberries.mdx", url = "no-blueberries", title = "No Blueberries", filetype = "Markdown"},
-]
+
+  [[input.files]]
+  path = "example-post.mdx"
+  url = "example-post"
+  title = "Example Post"
+  filetype = "Markdown"
+
+  [[input.files]]
+  path = "fido-standard.mdx"
+  url = "fido-standard"
+  title = "Accelerating passwordless authentication"
+  filetype = "Markdown"
+
+  [[input.files]]
+  path = "hello-world.mdx"
+  url = "hello-world"
+  title = "Hello World"
+  filetype = "Markdown"
+
+  [[input.files]]
+  path = "no-blueberries.mdx"
+  url = "no-blueberries"
+  title = "No Blueberries"
+  filetype = "Markdown"

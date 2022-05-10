@@ -1,9 +1,11 @@
 {
   "private": true,
   "scripts": {
-    "dev": "next",
+    "dev": "next & yarn index",
     "dev:watch": "next-remote-watch ./posts",
     "build": "next build",
+    "postbuild": "yarn index",
+    "index": "node storkIndexBuilder.mjs && stork build --input stork-config.toml --output public/stork-index.st",
     "start": "next start"
   },
   "dependencies": {
